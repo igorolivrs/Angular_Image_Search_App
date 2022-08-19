@@ -1,0 +1,18 @@
+.card{
+    margin: 50px 0px;
+    border: none;
+}
+
+button{
+    margin: 5px;
+}
+
+.tags{
+    display: flex;
+    flex-direction: row;
+}
+
+.tags p {
+    margin: 3px;
+    font-weight: 500;
+}

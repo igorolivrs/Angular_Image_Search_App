@@ -1,0 +1,92 @@
+.container-fluid{
+    margin: 45px 0px;
+}
+.card {
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15);
+    overflow: hidden;
+    margin: 15px 0px;
+}
+
+img {
+    cursor: pointer;
+    transition: 0.4s all;
+}
+
+img:hover{
+    transform: scale(1.06);
+}
+.card-body{
+    overflow: hidden;
+}
+
+.btn {
+    display: flex;
+    justify-content: end;
+}
+
+.btn button {
+    outline: none;
+    border: none;
+    color: rgb(8, 8, 143);
+    background-color: #ffffff;
+}
+
+.btn i {
+    transition: 0.4s all;
+}
+
+.btn i:hover {
+    transform: scale(1.2);
+}
+
+/* card - msg */
+.container{
+    position: relative;
+}
+
+.card-msg {
+    height: 60vh;
+    margin: 25px;
+    padding: 25px;
+}
+
+.center img {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    height: 162px;
+    width: 250px;
+    margin: 20px 0px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.btnClear{
+    height: 10em;
+    position: relative 
+}
+
+.btnClear button {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+} 
+
+.button{
+   position: absolute; 
+   top: 85%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+}
+

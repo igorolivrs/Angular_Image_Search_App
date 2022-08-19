@@ -1,0 +1,26 @@
+<div class="container-lg">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img class="img-fluid" [src]="items?.urls?.regular + sizeImg" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{items?.description}}</h5>
+                    <h4 class="card-title">{{items?.user?.name}}</h4>
+                    <p class="card-text">{{formatData(items?.created_at)}}</p>
+                    <button type="button" class="btn btn-danger">{{items?.likes}} Likes</button>
+                    <button type="button" class="btn btn-info">{{items?.downloads}} Downloads</button>
+                    <button type="submit" (click)="isFavorite? addToFavorite(items) : removeFavorite(items)"
+                        class="btn btn-outline-secondary btn-md">
+                        <i class="fa-solid fa-plus" *ngIf="isFavorite"></i>
+                        <i class="fa-solid fa-minus" *ngIf="!isFavorite"></i>
+                        Favorite</button>
+                    <div class="tags">
+                        <p *ngFor="let t of items.tags">{{t.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="search">
+    <form class="form" (ngSubmit)="searchImage(searchPage)">
+        <input type="search" placeholder="Search Images" name="searchKeyword" class="search-input"
+            [(ngModel)]="searchKeyword">
+        <button class="search-submit" type="submit">Search</button>
+        <button class="search-submit" type="submit" (click)="refresh()" routerLink="/">Refresh</button>
+    </form>
+</div>
+<div class="container-fluid" *ngIf="Search.length === 0 ; else resultSearch">
+    <div class="row">
+        <div class="card col-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of imageService.images">
+            <img [src]="card.urls.raw + sizeImg" class="card-img-top" routerLink="/details/{{card.id}}">
+            <div class="card-body">
+                <h5 class="card-title">{{card.description}}</h5>
+                <h6>{{card.created_at}}</h6>
+                <div class="btn">
+                    <button routerLink="/details/{{card.id}}"><i class="fa-solid fa-eye"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Paginação Home -->
+    <div class="center">
+        <nav aria-label="Page navigation example ">
+            <ul class="pagination pagination-circle pagination-lg">
+                <li class="page-item" [ngClass]="{disabled : page == 1}">
+                    <a class="page-link" aria-label="Previous" (click)="previous()">
+                        <span aria-hidden="true">&laquo;</span>
+
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" aria-label="Next" (click)="next()">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<ng-template #resultSearch>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of Search">
+                <img [src]="card.urls.raw + sizeImg" class="card-img-top" routerLink="/details/{{card.id}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{card.description}}</h5>
+                    <h6>{{card.created_at}}</h6>
+                    <div class="btn">
+                        <button routerLink="/details/{{card.id}}"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Paginação Search-->
+        <div class="center">
+            <nav aria-label="Page navigation example ">
+                <ul class="pagination pagination-lg">
+                    <li class="page-item" [ngClass]="{disabled : searchPage == 1}">
+                        <a class="page-link" aria-label="Previous" (click)="previousSearch()">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled : Search.length < 24}">
+                        <a class="page-link" aria-label="Next" (click)="nextSearch()">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</ng-template>
